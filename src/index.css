@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.app-sidebar {
+  background-color: #f5f5f5;
+  width: 30%;
+}
+
+.app-main {
+  flex-grow: 1;
+  width: 60%;
+  width: 100%;
+}
