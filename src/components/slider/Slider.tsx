@@ -293,39 +293,12 @@ const CalculatorBox = ({
 
   const undefinedVars = getUndefinedVariables();
 
-  const formatLatex = (expression: string): string => {
-    if (!expression) return "";
-    console.log("expression", expression);
-
-    // Replace operators with LaTeX equivalents
-    let latex = expression
-      .replace(/\*/g, "\\cdot ")
-      .replace(/\//g, "\\div ")
-      .replace(/\^/g, "^{")
-      .replace(/\+/g, "+")
-      .replace(/\-/g, "-");
-
-    // Add closing brace for powers if needed
-    if (latex.includes("^{")) {
-      latex = latex + "}";
-    }
-
-    // Add variable values as subscripts
-    Object.entries(state.charValues).forEach(([char, value]) => {
-      const regex = new RegExp(char, "g");
-      latex = latex.replace(regex, `${char}_{${value}}`);
-    });
-
-    return latex;
-  };
-
   return (
     <div className="slider-container">
       <div className="expression-section">
         <div className="expression-header">
           {calculator.expression && (
             <div className="latex-display">
-              {/* <InlineMath math={formatLatex(calculator.expression)} /> */}
               <InlineMath>{calculator.expression}</InlineMath>
             </div>
           )}
